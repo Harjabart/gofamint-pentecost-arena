@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOFAMINT Pentecost Arena | Ikere-Ekiti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       DYNAMIC THEME VARIABLES (3 Dignified Pentecostal Themes)
+       ========================================================================== */
+    :root,
+    [data-theme="royal"] {
+      --bg-page: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --primary: #0F172A;
+      --primary-mid: #1E3A8A;
+      --primary-light: #DBEAFE;
+      --accent: #D97706;
+      --accent-hover: #B45309;
+      --accent-soft: #FEF3C7;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-on-primary: #FFFFFF;
+      --border-color: #E2E8F0;
+      --hero-gradient: linear-gradient(135deg, #090D16 0%, #1E3A8A 60%, #172554 100%);
+      --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    [data-theme="flame"] {
+      --bg-page: #FFFBEB;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #FEF3C7;
+      --primary: #450A0A;
+      --primary-mid: #991B1B;
+      --primary-light: #FEE2E2;
+      --accent: #D97706;
+      --accent-hover: #92400E;
+      --accent-soft: #FDE68A;
+      --text-main: #290909;
+      --text-muted: #573333;
+      --text-on-primary: #FFFBEB;
+      --border-color: #FDE68A;
+      --hero-gradient: linear-gradient(135deg, #2A0404 0%, #7F1D1D 55%, #991B1B 100%);
+      --card-shadow: 0 10px 25px -5px rgba(69, 10, 10, 0.1), 0 8px 10px -6px rgba(69, 10, 10, 0.05);
+    }
+
+    [data-theme="emerald"] {
+      --bg-page: #ECFDF5;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #D1FAE5;
+      --primary: #064E3B;
+      --primary-mid: #065F46;
+      --primary-light: #A7F3D0;
+      --accent: #B45309;
+      --accent-hover: #92400E;
+      --accent-soft: #FEF3C7;
+      --text-main: #022C22;
+      --text-muted: #375A50;
+      --text-on-primary: #ECFDF5;
+      --border-color: #A7F3D0;
+      --hero-gradient: linear-gradient(135deg, #022C22 0%, #065F46 58%, #047857 100%);
+      --card-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.1), 0 8px 10px -6px rgba(6, 78, 59, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background-color 0.28s ease, border-color 0.28s ease, color 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .font-display {
+      font-family: 'Cinzel', serif;
+    }
+
+    .theme-bg-page { background-color: var(--bg-page); }
+    .theme-bg-surface { background-color: var(--bg-surface); }
+    .theme-bg-subtle { background-color: var(--bg-subtle); }
+    .theme-primary-bg { background-color: var(--primary); color: var(--text-on-primary); }
+    .theme-primary-mid-bg { background-color: var(--primary-mid); color: var(--text-on-primary); }
+    .theme-accent-bg { background-color: var(--accent); color: #FFFFFF; }
+    .theme-accent-bg:hover { background-color: var(--accent-hover); }
+    .theme-accent-text { color: var(--accent); }
+    .theme-primary-text { color: var(--primary); }
+    .theme-text-muted { color: var(--text-muted); }
+    .theme-border { border-color: var(--border-color); }
+    .theme-hero { background: var(--hero-gradient); color: var(--text-on-primary); }
+    .theme-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* Subtle Sacred Geometric Pattern Overlay */
+    .sacred-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-page); }
+    ::-webkit-scrollbar-thumb { background: var(--primary-mid); border-radius: 999px; }
+
+    /* Audio Visualizer Bars */
+    @keyframes eqPulse {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+    .eq-bar {
+      animation: eqPulse 0.8s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+    .eq-bar:nth-child(2) { animation-delay: 0.2s; }
+    .eq-bar:nth-child(3) { animation-delay: 0.4s; }
+    .eq-bar:nth-child(4) { animation-delay: 0.15s; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ========================================================================
+       TOP UTILITY & SOCIAL MEDIA BAR
+       ======================================================================== -->
+  <div class="theme-primary-bg text-xs py-2 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4 opacity-95">
+        <span><i class="fa-solid fa-location-dot mr-1.5 theme-accent-text"></i>Afao Quarters, Ado Road, Ikere-Ekiti (Plus Code: G63H+HF3)</span>
+        <span class="hidden md:inline"><i class="fa-regular fa-clock mr-1.5 theme-accent-text"></i>Sun: 7:00 AM & 8:30 AM | Tue: Word Encounter</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:inline opacity-80">Official Channels:</span>
+        <a href="https://www.youtube.com/@pentecostarenaTV" target="_blank" rel="noopener noreferrer" title="YouTube @pentecostarenaTV" class="hover:text-amber-400 transition flex items-center gap-1">
+          <i class="fa-brands fa-youtube text-sm"></i><span class="hidden lg:inline">@pentecostarenaTV</span>
+        </a>
+        <a href="https://www.facebook.com/search/top?q=Gofamint%20Pentecost%20Arena" target="_blank" rel="noopener noreferrer" title="Facebook Gofamint Pentecost Arena" class="hover:text-amber-400 transition flex items-center gap-1">
+          <i class="fa-brands fa-facebook text-sm"></i><span class="hidden lg:inline">Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/pentecost_arena" target="_blank" rel="noopener noreferrer" title="Instagram @pentecost_arena" class="hover:text-amber-400 transition flex items-center gap-1">
+          <i class="fa-brands fa-instagram text-sm"></i><span class="hidden lg:inline">@pentecost_arena</span>
+        </a>
+        <a href="https://www.tiktok.com/@pentecostarena" target="_blank" rel="noopener noreferrer" title="TikTok @pentecostarena" class="hover:text-amber-400 transition flex items-center gap-1">
+          <i class="fa-brands fa-tiktok text-sm"></i><span class="hidden lg:inline">@pentecostarena</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MAIN NAVIGATION & THEME SWITCHER HEADER
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 theme-bg-surface/95 backdrop-blur-md border-b theme-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-3">
+
+        <!-- Church Crest & Brand Identity -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('dashboard')">
+          <div class="w-11 h-11 rounded-xl theme-primary-bg flex items-center justify-center shadow-md border-2 border-amber-500/70 shrink-0">
+            <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M7 7h10" stroke-linecap="round"/>
+              <path d="M12 2c2.5 3.5 4 6 4 9a4 4 0 0 1-8 0c0-3 1.5-5.5 4-9z" stroke-opacity="0.6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-[11px] font-bold tracking-widest uppercase theme-accent-text">GOFAMINT</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/15 theme-accent-text font-semibold hidden sm:inline">Ikere-Ekiti</span>
+            </div>
+            <h1 class="font-display font-bold text-base sm:text-lg leading-tight theme-primary-text">Pentecost Arena</h1>
+          </div>
+        </div>
+
+        <!-- Primary Navigation Links (Desktop) -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">
+            <i class="fa-solid fa-church mr-1.5"></i>Dashboard
+          </button>
+          <button onclick="switchView('media')" id="nav-media" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">
+            <i class="fa-solid fa-photo-film mr-1.5"></i>Sermons & Media
+          </button>
+          <button onclick="switchView('institutes')" id="nav-institutes" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">
+            <i class="fa-solid fa-graduation-cap mr-1.5"></i>PLA & PSM
+          </button>
+          <button onclick="switchView('socials')" id="nav-socials" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">
+            <i class="fa-solid fa-share-nodes mr-1.5"></i>Social Hub
+          </button>
+          <button onclick="switchView('admin')" id="nav-admin" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved text-amber-500"></i>Admin Studio
+          </button>
+        </nav>
+
+        <!-- Right Controls: 3-Theme Switcher & Auth Account -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- 3-Theme Switcher Pill -->
+          <div class="flex items-center p-1 rounded-full theme-bg-subtle border theme-border" title="Switch Church Liturgical Theme">
+            <button onclick="setTheme('royal')" id="theme-btn-royal" class="theme-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition" title="Theme 1: Royal Sanctuary (Navy & Gold)">
+              <span class="w-3 h-3 rounded-full bg-[#1E3A8A] ring-1 ring-amber-400"></span>
+              <span class="hidden xl:inline">Royal</span>
+            </button>
+            <button onclick="setTheme('flame')" id="theme-btn-flame" class="theme-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition" title="Theme 2: Apostolic Flame (Crimson & Amber)">
+              <span class="w-3 h-3 rounded-full bg-[#991B1B] ring-1 ring-amber-400"></span>
+              <span class="hidden xl:inline">Flame</span>
+            </button>
+            <button onclick="setTheme('emerald')" id="theme-btn-emerald" class="theme-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition" title="Theme 3: Emerald Grace (Forest & Champagne)">
+              <span class="w-3 h-3 rounded-full bg-[#065F46] ring-1 ring-amber-400"></span>
+              <span class="hidden xl:inline">Emerald</span>
+            </button>
+          </div>
+
+          <!-- User Auth Area -->
+          <div id="header-auth-area" class="flex items-center gap-2">
+            <!-- Populated dynamically by JS -->
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg theme-bg-subtle border theme-border theme-primary-text">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t theme-border theme-bg-surface px-4 py-3 space-y-1.5">
+      <button onclick="switchView('dashboard'); toggleMobileMenu()" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-black/5 flex items-center gap-2">
+        <i class="fa-solid fa-church w-5"></i>Church Dashboard
+      </button>
+      <button onclick="switchView('media'); toggleMobileMenu()" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-black/5 flex items-center gap-2">
+        <i class="fa-solid fa-photo-film w-5"></i>Sermons, Videos & Gallery
+      </button>
+      <button onclick="switchView('institutes'); toggleMobileMenu()" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-black/5 flex items-center gap-2">
+        <i class="fa-solid fa-graduation-cap w-5"></i>Leadership & Ministry Institutes
+      </button>
+      <button onclick="switchView('socials'); toggleMobileMenu()" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-black/5 flex items-center gap-2">
+        <i class="fa-solid fa-share-nodes w-5"></i>All Social Media Pages
+      </button>
+      <button onclick="switchView('admin'); toggleMobileMenu()" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-black/5 flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved w-5 text-amber-500"></i>Admin Media Studio
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN CONTENT CONTAINER (MULTI-VIEW SPA)
+       ======================================================================== -->
+  <main class="flex-1">
+
+    <!-- ======================================================================
+         VIEW 1: CHURCH DASHBOARD ("What the Church is All About")
+         ====================================================================== -->
+    <section id="view-dashboard" class="view-section">
+      <!-- Hero Banner -->
+      <div class="theme-hero sacred-pattern relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-7 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold tracking-wide text-amber-300">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <span>THE GOSPEL FAITH MISSION INTERNATIONAL (GOFAMINT)</span>
+              </div>
+              <h2 class="font-display text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+                Pentecost Arena,<br/>
+                <span class="text-amber-400">Ikere-Ekiti</span>
+              </h2>
+              <p class="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
+                A dynamic hub of spiritual alignment, sound biblical doctrine, civic leadership, and youth empowerment in the heart of Ekiti State. Raising Kingdom torchbearers under the leadership of <strong>Pastor Beloved Akinkunmi Abimbola</strong>.
+              </p>
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <button onclick="switchView('media')" class="theme-accent-bg px-6 py-3.5 rounded-xl font-bold text-sm shadow-lg flex items-center gap-2">
+                  <i class="fa-solid fa-headphones"></i>Listen to Sermons & Watch Live
+                </button>
+                <button onclick="switchView('socials')" class="px-6 py-3.5 rounded-xl font-bold text-sm bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-sm flex items-center gap-2">
+                  <i class="fa-solid fa-globe"></i>Connect on Social Media
+                </button>
+                <button onclick="openAuthModal('login')" id="hero-admin-cta" class="px-5 py-3.5 rounded-xl font-semibold text-sm bg-black/30 hover:bg-black/45 border border-amber-400/40 text-amber-300 flex items-center gap-2">
+                  <i class="fa-solid fa-lock"></i>Member / Admin Login
+                </button>
+              </div>
+            </div>
+
+            <!-- Live Sanctuary Info Card -->
+            <div class="lg:col-span-5">
+              <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-7 space-y-5 shadow-2xl">
+                <div class="flex items-center justify-between border-b border-white/15 pb-4">
+                  <div>
+                    <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Sanctuary Identity</span>
+                    <h3 class="font-display text-xl font-bold mt-0.5">Worship & Fellowship</h3>
+                  </div>
+                  <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                    <i class="fa-solid fa-circle text-[8px] mr-1.5 animate-pulse"></i>Active Parish
+                  </span>
+                </div>
+
+                <div class="space-y-3.5 text-sm">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <div>
+                      <p class="font-bold text-white">Sunday Celebration Services</p>
+                      <p class="text-white/80">Early Risers: <strong>7:00 AM</strong> &bull; Main Celebration: <strong>8:30 AM</strong></p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-book-bible"></i>
+                    </div>
+                    <div>
+                      <p class="font-bold text-white">Tuesday Word Encounter</p>
+                      <p class="text-white/80">Interactive Bible Study, Doctrine & Prayer Feast (Evening)</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-map-pin"></i>
+                    </div>
+                    <div>
+                      <p class="font-bold text-white">Sanctuary Location</p>
+                      <p class="text-white/80">Afao Quarters, Along Ado Road, Ikere-Ekiti, Ekiti State, Nigeria</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-2 border-t border-white/15 flex items-center justify-between text-xs text-white/80">
+                  <span>Global General Overseer: <strong>Pastor (Dr.) E. O. Abina</strong></span>
+                  <a href="https://maps.google.com/?q=G63H+HF3+Ikere+Ekiti" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:underline font-semibold">
+                    Open Map <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats & Pillars Strip -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-7 relative z-20">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="theme-card rounded-2xl p-5 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl theme-primary-bg flex items-center justify-center text-amber-400 text-xl shrink-0">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider theme-text-muted">Heritage</p>
+              <p class="font-display font-bold text-lg theme-primary-text">Since 1956</p>
+              <p class="text-xs theme-text-muted">GOFAMINT Global Roots</p>
+            </div>
+          </div>
+
+          <div class="theme-card rounded-2xl p-5 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl theme-primary-bg flex items-center justify-center text-amber-400 text-xl shrink-0">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider theme-text-muted">Leadership</p>
+              <p class="font-display font-bold text-lg theme-primary-text">PLA Cohort</p>
+              <p class="text-xs theme-text-muted">Civic & Kingdom Excellence</p>
+            </div>
+          </div>
+
+          <div class="theme-card rounded-2xl p-5 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl theme-primary-bg flex items-center justify-center text-amber-400 text-xl shrink-0">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider theme-text-muted">Campus Outreach</p>
+              <p class="font-display font-bold text-lg theme-primary-text">GSF Victory</p>
+              <p class="text-xs theme-text-muted">BOUESTI Student Chapter</p>
+            </div>
+          </div>
+
+          <div class="theme-card rounded-2xl p-5 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl theme-primary-bg flex items-center justify-center text-amber-400 text-xl shrink-0">
+              <i class="fa-solid fa-tower-broadcast"></i>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider theme-text-muted">Digital Pulpit</p>
+              <p class="font-display font-bold text-lg theme-primary-text" id="stat-media-count">12+ Media</p>
+              <p class="text-xs theme-text-muted">Audio, Video & Gallery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Pentecost Arena & Leadership Architecture -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-5">
+            <span class="text-xs font-bold uppercase tracking-widest theme-accent-text">Who We Are & Our Mandate</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold theme-primary-text">
+              Transforming Lives Through Sound Doctrine, Fervent Prayer & Purposeful Leadership
+            </h3>
+            <p class="theme-text-muted leading-relaxed">
+              <strong>GOFAMINT Pentecost Arena, Ikere-Ekiti</strong> stands as a flagship parish of The Gospel Faith Mission International (founded in 1956 by Pastor Dr. R. A. George and led globally by Pastor Dr. Elijah Oludele Abina). Positioned strategically along Ado Road in Afao Quarters, our assembly bridges timeless Pentecostal holiness with contemporary excellence for families, professionals, civil servants, and university students across Ikere-Ekiti.
+            </p>
+            <p class="theme-text-muted leading-relaxed">
+              Under the visionary shepherd-leadership of <strong>Pastor Beloved Akinkunmi Abimbola</strong>, Pentecost Arena has become renowned not only for vibrant worship and deep expository preaching, but also for pioneering civic and entrepreneurial capacity-building through the <em>Pentecost Leadership Academy (PLA)</em>, ministerial equipping via the <em>Pentecost School of Ministry (PSM)</em>, and the annual youth awakening conference, <em>EMERGENCE</em>.
+            </p>
+
+            <!-- Core Pillars Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl theme-bg-subtle border theme-border">
+                <h4 class="font-bold theme-primary-text flex items-center gap-2">
+                  <i class="fa-solid fa-scroll theme-accent-text"></i>The Ancient Landmark
+                </h4>
+                <p class="text-xs theme-text-muted mt-1.5 leading-relaxed">
+                  Preserving apostolic holiness, rich hymnal heritage, and uncompromised biblical truth across generations.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl theme-bg-subtle border theme-border">
+                <h4 class="font-bold theme-primary-text flex items-center gap-2">
+                  <i class="fa-solid fa-users-rays theme-accent-text"></i>The Rechabites & Workers
+                </h4>
+                <p class="text-xs theme-text-muted mt-1.5 leading-relaxed">
+                  Consecrated workforce committed to sacrificial service, evangelism, hospitality, and community impact.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Liturgical Calendar & Special Programs Card -->
+          <div class="lg:col-span-5 theme-card rounded-2xl p-6 sm:p-7 space-y-5">
+            <div class="flex items-center justify-between border-b theme-border pb-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider theme-accent-text">Annual & Thematic Rhythm</span>
+                <h4 class="font-display text-xl font-bold theme-primary-text">Signature Gatherings</h4>
+              </div>
+              <i class="fa-regular fa-calendar-check text-2xl theme-accent-text"></i>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex gap-3.5 items-start">
+                <span class="px-2.5 py-1 rounded-lg theme-primary-bg text-xs font-bold shrink-0">SEPT</span>
+                <div>
+                  <h5 class="font-bold text-sm theme-primary-text">EMERGENCE Annual Youth Conference</h5>
+                  <p class="text-xs theme-text-muted mt-0.5">High-impact spiritual awakening, career symposium, and worship night empowering youths & BOUESTI students.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-3.5 items-start">
+                <span class="px-2.5 py-1 rounded-lg theme-accent-bg text-xs font-bold shrink-0">ANNUAL</span>
+                <div>
+                  <h5 class="font-bold text-sm theme-primary-text">Old School Sunday ("The Ancient Landmark")</h5>
+                  <p class="text-xs theme-text-muted mt-0.5">Celebrating heritage attire, classic hymns, and foundational Pentecostal faith.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-3.5 items-start">
+                <span class="px-2.5 py-1 rounded-lg theme-primary-bg text-xs font-bold shrink-0">COHORT</span>
+                <div>
+                  <h5 class="font-bold text-sm theme-primary-text">Pentecost Leadership Academy (PLA)</h5>
+                  <p class="text-xs theme-text-muted mt-0.5">"Leading Self to Lead Others" — equipping leaders in governance, enterprise, and grant access.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-3.5 items-start">
+                <span class="px-2.5 py-1 rounded-lg theme-accent-bg text-xs font-bold shrink-0">YOUTH</span>
+                <div>
+                  <h5 class="font-bold text-sm theme-primary-text">Christ Ambassadors & Workers Installation</h5>
+                  <p class="text-xs theme-text-muted mt-0.5">Commissioning "The Rechabites" and celebrating vibrant youth stewardship.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Media Preview Row on Dashboard -->
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest theme-accent-text">Digital Sanctuary</span>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold theme-primary-text">Latest Sermons, Broadcasts & Moments</h3>
+            </div>
+            <button onclick="switchView('media')" class="px-4 py-2 rounded-xl theme-primary-bg text-xs font-bold hover:opacity-90 flex items-center gap-2">
+              Explore Full Media Library <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div id="dashboard-featured-media" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Dynamically injected top 3 items (1 audio, 1 video, 1 photo) -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 2: SERMONS, VIDEOS & GALLERY MEDIA LIBRARY
+         ====================================================================== -->
+    <section id="view-media" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b theme-border pb-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest theme-accent-text">Pentecost Arena Media Hub</span>
+          <h2 class="font-display text-3xl font-bold theme-primary-text mt-1">Sermons, Videos & Sanctuary Gallery</h2>
+          <p class="text-sm theme-text-muted mt-1">Stream Spirit-filled audio messages, watch service broadcasts, and browse church event photography.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="filterMedia('all')" id="filter-all" class="media-filter-btn px-4 py-2 rounded-xl text-xs font-bold theme-primary-bg">All Media</button>
+          <button onclick="filterMedia('audio')" id="filter-audio" class="media-filter-btn px-4 py-2 rounded-xl text-xs font-bold theme-bg-subtle theme-primary-text border theme-border">
+            <i class="fa-solid fa-headphones mr-1.5"></i>Audio Sermons
+          </button>
+          <button onclick="filterMedia('video')" id="filter-video" class="media-filter-btn px-4 py-2 rounded-xl text-xs font-bold theme-bg-subtle theme-primary-text border theme-border">
+            <i class="fa-solid fa-video mr-1.5"></i>Videos
+          </button>
+          <button onclick="filterMedia('photo')" id="filter-photo" class="media-filter-btn px-4 py-2 rounded-xl text-xs font-bold theme-bg-subtle theme-primary-text border theme-border">
+            <i class="fa-solid fa-images mr-1.5"></i>Pictures
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="relative max-w-md">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 theme-text-muted text-sm"></i>
+        <input type="text" id="media-search-input" oninput="renderMediaLibrary()" placeholder="Search sermons, speakers, or events..." class="w-full pl-10 pr-4 py-2.5 rounded-xl theme-bg-surface border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+      </div>
+
+      <!-- Media Grid -->
+      <div id="media-library-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 3: INSTITUTES & CAMPUS OUTREACH (PLA, PSM, GSF)
+         ====================================================================== -->
+    <section id="view-institutes" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold uppercase tracking-widest theme-accent-text">Equipping The Saints</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold theme-primary-text mt-1">Leadership Academies & Campus Fellowship</h2>
+        <p class="theme-text-muted mt-2 leading-relaxed">
+          Beyond Sunday worship, GOFAMINT Pentecost Arena invests heavily in intellectual, civic, ministerial, and student development across Ikere-Ekiti.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- PLA Card -->
+        <div class="theme-card rounded-2xl overflow-hidden flex flex-col">
+          <div class="theme-primary-bg p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Civic & Enterprise Institute</span>
+            <h3 class="font-display text-2xl font-bold mt-1">Pentecost Leadership Academy (PLA)</h3>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div class="space-y-3 text-sm theme-text-muted">
+              <p>
+                Anchored on the theme <strong>"Leading Self to Lead Others,"</strong> PLA bridges spiritual integrity with practical marketplace, governance, and entrepreneurial competence.
+              </p>
+              <ul class="space-y-2 pt-2">
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Ethical civic leadership & public service keynotes (featuring distinguished leaders such as Rt. Hon. Adeoye Aribasoye).</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Business structuring, grant procurement workshops & SME mentorship.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Open to emerging leaders, professionals, and young entrepreneurs in Ekiti State.</span></li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t theme-border">
+              <span class="inline-block text-xs font-bold px-3 py-1 rounded-full theme-bg-subtle theme-primary-text">Annual Leadership Cohort</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PSM Card -->
+        <div class="theme-card rounded-2xl overflow-hidden flex flex-col">
+          <div class="theme-primary-mid-bg p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-300">Theological & Ministerial Training</span>
+            <h3 class="font-display text-2xl font-bold mt-1">Pentecost School of Ministry (PSM)</h3>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div class="space-y-3 text-sm theme-text-muted">
+              <p>
+                Dedicated to raising sound, doctrinally grounded <strong>"Torchbearers"</strong> equipped for effective ministry in the local church and mission fields.
+              </p>
+              <ul class="space-y-2 pt-2">
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Biblical hermeneutics, expository homiletics, and GOFAMINT foundational doctrines.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Pastoral care, discipleship dynamics, and Christian ethics.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Culminates in formal graduation and commissioning of ministry workers.</span></li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t theme-border">
+              <span class="inline-block text-xs font-bold px-3 py-1 rounded-full theme-bg-subtle theme-primary-text">Torchbearers Commissioning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GSF Campus Card -->
+        <div class="theme-card rounded-2xl overflow-hidden flex flex-col">
+          <div class="theme-primary-bg p-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">University Student Ministry</span>
+            <h3 class="font-display text-2xl font-bold mt-1">GSF Victory Field (BOUESTI)</h3>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div class="space-y-3 text-sm theme-text-muted">
+              <p>
+                The vibrant campus arm serving students of <strong>Bamidele Olumilua University of Education, Science and Technology, Ikere-Ekiti (BOUESTI)</strong>.
+              </p>
+              <ul class="space-y-2 pt-2">
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Academic excellence tutorials, exam prayer vigils, and welfare support.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Seamless spiritual covering and mentorship from Pentecost Arena elders.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle theme-accent-text mt-1"></i><span>Active participation in the annual EMERGENCE youth convocation.</span></li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t theme-border">
+              <span class="inline-block text-xs font-bold px-3 py-1 rounded-full theme-bg-subtle theme-primary-text">Campus Family & Discipleship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 4: ALL CHURCH SOCIAL MEDIA PAGES HUB
+         ====================================================================== -->
+    <section id="view-socials" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest theme-accent-text">Stay Connected Anywhere</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold theme-primary-text">Official Social Media Channels</h2>
+        <p class="theme-text-muted text-sm sm:text-base">
+          Follow, subscribe, and engage with GOFAMINT Pentecost Arena Ikere-Ekiti across all our verified digital platforms for livestreams, short exhortations, and event updates.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@pentecostarenaTV" target="_blank" rel="noopener noreferrer" class="theme-card rounded-2xl p-6 sm:p-8 flex items-start gap-5 hover:-translate-y-1 transition group">
+          <div class="w-16 h-16 rounded-2xl bg-red-600 text-white flex items-center justify-center text-3xl shrink-0 shadow-lg group-hover:scale-105 transition">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-red-600">YouTube Channel</span>
+              <span class="text-xs font-semibold theme-text-muted group-hover:text-red-600">Visit Channel <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+            </div>
+            <h3 class="font-display text-xl font-bold theme-primary-text">@pentecostarenaTV</h3>
+            <p class="text-sm theme-text-muted">
+              Watch full Sunday Celebration livestreams, Word Encounter teachings, EMERGENCE conference sessions, and special choir ministrations.
+            </p>
+          </div>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/search/top?q=Gofamint%20Pentecost%20Arena" target="_blank" rel="noopener noreferrer" class="theme-card rounded-2xl p-6 sm:p-8 flex items-start gap-5 hover:-translate-y-1 transition group">
+          <div class="w-16 h-16 rounded-2xl bg-[#1877F2] text-white flex items-center justify-center text-3xl shrink-0 shadow-lg group-hover:scale-105 transition">
+            <i class="fa-brands fa-facebook-f"></i>
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#1877F2]">Facebook Page</span>
+              <span class="text-xs font-semibold theme-text-muted group-hover:text-[#1877F2]">Open Facebook <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+            </div>
+            <h3 class="font-display text-xl font-bold theme-primary-text">Gofamint Pentecost Arena</h3>
+            <p class="text-sm theme-text-muted">
+              Join our interactive church community for service photo albums, weekly announcements, prayer wall updates, and live broadcasts.
+            </p>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/pentecost_arena" target="_blank" rel="noopener noreferrer" class="theme-card rounded-2xl p-6 sm:p-8 flex items-start gap-5 hover:-translate-y-1 transition group">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-600 to-purple-700 text-white flex items-center justify-center text-3xl shrink-0 shadow-lg group-hover:scale-105 transition">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-pink-600">Instagram Handle</span>
+              <span class="text-xs font-semibold theme-text-muted group-hover:text-pink-600">Follow @pentecost_arena <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+            </div>
+            <h3 class="font-display text-xl font-bold theme-primary-text">@pentecost_arena</h3>
+            <p class="text-sm theme-text-muted">
+              Daily prophetic quotes, sermon reels, Old School Sunday highlights, PLA cohorts, and vibrant snapshots from Ikere-Ekiti.
+            </p>
+          </div>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@pentecostarena" target="_blank" rel="noopener noreferrer" class="theme-card rounded-2xl p-6 sm:p-8 flex items-start gap-5 hover:-translate-y-1 transition group">
+          <div class="w-16 h-16 rounded-2xl bg-neutral-900 text-white flex items-center justify-center text-3xl shrink-0 shadow-lg group-hover:scale-105 transition">
+            <i class="fa-brands fa-tiktok"></i>
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider theme-primary-text">TikTok Official</span>
+              <span class="text-xs font-semibold theme-text-muted group-hover:underline">Watch on TikTok <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+            </div>
+            <h3 class="font-display text-xl font-bold theme-primary-text">@pentecostarena</h3>
+            <p class="text-sm theme-text-muted">
+              Bite-sized Word nuggets, youth praise moments, Christ Ambassadors clips, and uplifting 60-second faith charges.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 5: ADMIN ACCESS & MEDIA STUDIO (Post Pictures, Videos & Sermons)
+         ====================================================================== -->
+    <section id="view-admin" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Locked State (Shown when user is not logged in as Admin) -->
+      <div id="admin-locked-panel" class="max-w-xl mx-auto theme-card rounded-3xl p-8 sm:p-10 text-center space-y-6">
+        <div class="w-16 h-16 rounded-2xl theme-primary-bg text-amber-400 flex items-center justify-center text-2xl mx-auto shadow-lg">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-widest theme-accent-text">Restricted Church Media Desk</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold theme-primary-text">Admin Access Required</h2>
+          <p class="text-sm theme-text-muted leading-relaxed">
+            Only authorized GOFAMINT Pentecost Arena media administrators and pastors can upload sanctuary pictures, broadcast videos, and audio sermons.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <button onclick="openAuthModal('login')" class="w-full sm:w-auto px-6 py-3 rounded-xl theme-primary-bg font-bold text-sm shadow">
+            <i class="fa-solid fa-right-to-bracket mr-2"></i>Sign In as Admin
+          </button>
+          <button onclick="quickDemoAdminLogin()" class="w-full sm:w-auto px-6 py-3 rounded-xl theme-accent-bg font-bold text-sm shadow">
+            <i class="fa-solid fa-bolt mr-2"></i>Instant Demo Admin Login
+          </button>
+        </div>
+        <p class="text-xs theme-text-muted">
+          Creating a new Admin account? Use church access code <code class="px-1.5 py-0.5 rounded theme-bg-subtle font-bold">GOFAMINT2026</code> during registration.
+        </p>
+      </div>
+
+      <!-- Unlocked Admin Studio Panel -->
+      <div id="admin-studio-panel" class="hidden space-y-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b theme-border pb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-700 text-xs font-bold mb-2">
+              <i class="fa-solid fa-circle-check"></i>Authenticated Admin Session
+            </div>
+            <h2 class="font-display text-3xl font-bold theme-primary-text">Pentecost Arena Media Studio</h2>
+            <p class="text-sm theme-text-muted">Publish new audio sermons, service videos, and church gallery pictures directly to the live congregation portal.</p>
+          </div>
+          <button onclick="switchView('media')" class="px-4 py-2.5 rounded-xl theme-bg-subtle border theme-border text-xs font-bold theme-primary-text hover:opacity-80">
+            <i class="fa-solid fa-eye mr-1.5"></i>Preview Live Media Library
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Publisher Form (7 cols) -->
+          <div class="lg:col-span-7 theme-card rounded-2xl p-6 sm:p-8 space-y-6">
+            <!-- Media Type Selector Tabs -->
+            <div class="grid grid-cols-3 gap-2 p-1.5 rounded-xl theme-bg-subtle border theme-border">
+              <button type="button" onclick="setAdminPostType('audio')" id="admin-tab-audio" class="admin-type-tab py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 theme-primary-bg shadow">
+                <i class="fa-solid fa-microphone-lines"></i>Audio Sermon
+              </button>
+              <button type="button" onclick="setAdminPostType('video')" id="admin-tab-video" class="admin-type-tab py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 theme-primary-text">
+                <i class="fa-solid fa-video"></i>Video Broadcast
+              </button>
+              <button type="button" onclick="setAdminPostType('photo')" id="admin-tab-photo" class="admin-type-tab py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 theme-primary-text">
+                <i class="fa-solid fa-camera"></i>Church Picture
+              </button>
+            </div>
+
+            <form id="admin-publish-form" onsubmit="handleAdminPublish(event)" class="space-y-4">
+              <input type="hidden" id="post-type-input" value="audio" />
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1.5" id="label-post-title">Sermon Title *</label>
+                <input type="text" id="post-title" required placeholder="e.g., Walking in Apostolic Dominion" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1.5" id="label-post-speaker">Preacher / Speaker *</label>
+                  <input type="text" id="post-speaker" required value="Pastor Beloved Akinkunmi Abimbola" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1.5">Service / Event Category</label>
+                  <select id="post-category" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <option value="Sunday Celebration Service">Sunday Celebration Service</option>
+                    <option value="Tuesday Word Encounter">Tuesday Word Encounter</option>
+                    <option value="Pentecost Leadership Academy (PLA)">Pentecost Leadership Academy (PLA)</option>
+                    <option value="EMERGENCE Youth Conference">EMERGENCE Youth Conference</option>
+                    <option value="Old School Sunday">Old School Sunday</option>
+                    <option value="Pentecost School of Ministry (PSM)">Pentecost School of Ministry (PSM)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- File Upload OR URL Input -->
+              <div class="p-4 rounded-xl theme-bg-subtle border border-dashed theme-border space-y-3">
+                <div class="flex items-center justify-between">
+                  <label class="text-xs font-bold uppercase tracking-wider theme-primary-text" id="label-file-upload">
+                    Upload Audio File (.mp3, .wav, .m4a)
+                  </label>
+                  <span class="text-[11px] theme-text-muted">Upload from device OR paste link below</span>
+                </div>
+                <input type="file" id="post-file-input" accept="audio/*" onchange="handleFileSelection(event)" class="block w-full text-xs theme-text-muted file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-white hover:file:bg-amber-600 cursor-pointer" />
+                <div id="file-preview-badge" class="hidden text-xs font-semibold text-emerald-700 bg-emerald-500/15 px-3 py-1.5 rounded-lg"></div>
+
+                <div class="pt-1">
+                  <label class="block text-[11px] font-semibold theme-text-muted mb-1" id="label-post-url">Or Direct Media / YouTube URL</label>
+                  <input type="url" id="post-url" placeholder="https://..." class="w-full px-3.5 py-2 rounded-lg theme-bg-surface border theme-border text-xs focus:outline-none focus:ring-2 focus:ring-amber-500" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1.5" id="label-post-meta">Scripture Text / Tag</label>
+                  <input type="text" id="post-meta" placeholder="e.g., Acts 1:8; Proverbs 22:28" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1.5">Date</label>
+                  <input type="date" id="post-date" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1.5">Summary / Caption</label>
+                <textarea id="post-description" rows="3" placeholder="Write sermon notes, key takeaways, or event photo description..." class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl theme-accent-bg font-bold text-sm shadow-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-cloud-arrow-up"></i>Publish to Church Platform
+              </button>
+            </form>
+          </div>
+
+          <!-- Published Content Manager (5 cols) -->
+          <div class="lg:col-span-5 theme-card rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between border-b theme-border pb-3">
+              <h3 class="font-display text-lg font-bold theme-primary-text">Published Media Manager</h3>
+              <span id="admin-total-badge" class="px-2.5 py-1 rounded-full text-xs font-bold theme-bg-subtle theme-primary-text">0 Items</span>
+            </div>
+            <div id="admin-media-list" class="space-y-3 max-h-[560px] overflow-y-auto pr-1">
+              <!-- Dynamically rendered list with delete controls -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       PERSISTENT BOTTOM AUDIO SERMON PLAYER BAR (Appears when playing audio)
+       ======================================================================== -->
+  <div id="audio-player-bar" class="hidden fixed bottom-0 inset-x-0 z-50 theme-primary-bg border-t border-amber-400/30 shadow-2xl px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-end justify-center gap-1 p-2.5 shrink-0" id="audio-eq">
+          <span class="w-1 h-4 bg-amber-400 rounded-full eq-bar"></span>
+          <span class="w-1 h-4 bg-amber-400 rounded-full eq-bar"></span>
+          <span class="w-1 h-4 bg-amber-400 rounded-full eq-bar"></span>
+          <span class="w-1 h-4 bg-amber-400 rounded-full eq-bar"></span>
+        </div>
+        <div class="min-w-0">
+          <p id="player-title" class="font-bold text-sm text-white truncate">Sermon Title</p>
+          <p id="player-speaker" class="text-xs text-amber-300 truncate">Pastor Beloved Akinkunmi Abimbola</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 w-full sm:w-1/2">
+        <button onclick="toggleAudioPlay()" id="player-play-btn" class="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 font-bold">
+          <i class="fa-solid fa-pause"></i>
+        </button>
+        <span id="player-current-time" class="text-xs font-mono text-white/80 w-10 text-right">0:00</span>
+        <input type="range" id="player-seek" value="0" min="0" max="100" oninput="seekAudio(this.value)" class="flex-1 accent-amber-400 h-1.5 bg-white/20 rounded-lg cursor-pointer" />
+        <span id="player-duration" class="text-xs font-mono text-white/80 w-10">0:00</span>
+      </div>
+
+      <button onclick="closeAudioPlayer()" class="hidden sm:flex text-white/70 hover:text-white p-1.5" title="Close Player">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+    <audio id="html-audio-element"></audio>
+  </div>
+
+  <!-- ========================================================================
+       AUTHENTICATION MODAL (Login, Create Account, Forgot Password, Show/Hide)
+       ======================================================================== -->
+  <div id="auth-modal" class="hidden fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="theme-bg-surface border theme-border rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative my-8">
+      <button onclick="closeAuthModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full theme-bg-subtle flex items-center justify-center theme-text-muted hover:theme-primary-text">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Crest -->
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl theme-primary-bg text-amber-400 flex items-center justify-center text-xl mx-auto mb-3 shadow">
+          <i class="fa-solid fa-church"></i>
+        </div>
+        <h3 id="auth-modal-title" class="font-display text-2xl font-bold theme-primary-text">Welcome Back</h3>
+        <p id="auth-modal-subtitle" class="text-xs theme-text-muted mt-1">Sign in to GOFAMINT Pentecost Arena, Ikere-Ekiti</p>
+      </div>
+
+      <!-- STEP A: LOGIN FORM -->
+      <form id="form-login" onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">Email Address</label>
+          <input type="email" id="login-email" required placeholder="member@pentecostarena.org" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted">Password</label>
+            <button type="button" onclick="switchAuthTab('forgot')" class="text-xs font-semibold theme-accent-text hover:underline">
+              Forgot Password?
+            </button>
+          </div>
+          <div class="relative">
+            <input type="password" id="login-password" required placeholder="Enter your password" class="w-full pl-4 pr-11 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            <button type="button" onclick="togglePasswordVisibility('login-password', this)" aria-label="Show or hide password" class="absolute right-3 top-1/2 -translate-y-1/2 theme-text-muted hover:theme-primary-text p-1">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl theme-primary-bg font-bold text-sm shadow-md hover:opacity-95">
+          Sign In
+        </button>
+
+        <div class="relative py-2">
+          <div class="absolute inset-0 flex items-center"><div class="w-full border-t theme-border"></div></div>
+          <div class="relative flex justify-center text-xs"><span class="px-2 theme-bg-surface theme-text-muted">Or quick access</span></div>
+        </div>
+
+        <button type="button" onclick="quickDemoAdminLogin()" class="w-full py-2.5 rounded-xl theme-bg-subtle border theme-border text-xs font-bold theme-primary-text hover:opacity-85 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-shield-halved text-amber-500"></i>One-Click Demo Admin Access
+        </button>
+
+        <p class="text-center text-xs theme-text-muted pt-2">
+          New to Pentecost Arena online?
+          <button type="button" onclick="switchAuthTab('register')" class="font-bold theme-accent-text hover:underline ml-1">Create an Account</button>
+        </p>
+      </form>
+
+      <!-- STEP B: CREATE ACCOUNT FORM -->
+      <form id="form-register" onsubmit="handleRegister(event)" class="hidden space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">Full Name *</label>
+          <input type="text" id="reg-name" required placeholder="e.g., Bro. Emmanuel Adeyemi" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">Email Address *</label>
+          <input type="email" id="reg-email" required placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">Password *</label>
+          <div class="relative">
+            <input type="password" id="reg-password" required minlength="6" placeholder="Create a strong password" class="w-full pl-4 pr-11 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            <button type="button" onclick="togglePasswordVisibility('reg-password', this)" aria-label="Show or hide password" class="absolute right-3 top-1/2 -translate-y-1/2 theme-text-muted hover:theme-primary-text p-1">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">Confirm Password *</label>
+          <div class="relative">
+            <input type="password" id="reg-confirm-password" required minlength="6" placeholder="Re-enter password" class="w-full pl-4 pr-11 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            <button type="button" onclick="togglePasswordVisibility('reg-confirm-password', this)" aria-label="Show or hide confirm password" class="absolute right-3 top-1/2 -translate-y-1/2 theme-text-muted hover:theme-primary-text p-1">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl theme-bg-subtle border theme-border space-y-2">
+          <label class="flex items-center gap-2 text-xs font-bold theme-primary-text cursor-pointer">
+            <input type="checkbox" id="reg-is-admin" onchange="toggleAdminCodeField()" class="rounded accent-amber-600" />
+            <span>Register as Media Admin / Pastor</span>
+          </label>
+          <div id="admin-code-wrapper" class="hidden">
+            <input type="text" id="reg-admin-code" placeholder="Enter Church Admin Code (GOFAMINT2026)" class="w-full px-3 py-2 rounded-lg theme-bg-surface border theme-border text-xs focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl theme-accent-bg font-bold text-sm shadow-md">
+          Create Account
+        </button>
+
+        <p class="text-center text-xs theme-text-muted pt-1">
+          Already have an account?
+          <button type="button" onclick="switchAuthTab('login')" class="font-bold theme-accent-text hover:underline ml-1">Sign In</button>
+        </p>
+      </form>
+
+      <!-- STEP C: FORGOT PASSWORD FLOW -->
+      <div id="form-forgot" class="hidden space-y-4">
+        <!-- Step 1: Enter Email -->
+        <form id="forgot-step-1" onsubmit="handleForgotStep1(event)" class="space-y-4">
+          <p class="text-xs theme-text-muted leading-relaxed">
+            Enter the email address associated with your Pentecost Arena account. We will generate a 6-digit recovery code to reset your password.
+          </p>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">Registered Email *</label>
+            <input type="email" id="forgot-email" required placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          </div>
+          <button type="submit" class="w-full py-3 rounded-xl theme-primary-bg font-bold text-sm shadow">
+            Send Verification Code
+          </button>
+        </form>
+
+        <!-- Step 2: Verify Code & Set New Password -->
+        <form id="forgot-step-2" onsubmit="handleForgotStep2(event)" class="hidden space-y-3.5">
+          <div class="p-3 rounded-xl bg-amber-500/15 border border-amber-500/30 text-xs theme-primary-text">
+            Recovery code sent! For demo convenience, your verification code is: <strong id="simulated-otp-display" class="font-mono text-sm"></strong>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">6-Digit Verification Code *</label>
+            <input type="text" id="forgot-otp" required maxlength="6" placeholder="123456" class="w-full px-4 py-2.5 rounded-xl theme-bg-page border theme-border text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider theme-text-muted mb-1">New Password *</label>
+            <div class="relative">
+              <input type="password" id="forgot-new-password" required minlength="6" placeholder="Enter new password" class="w-full pl-4 pr-11 py-2.5 rounded-xl theme-bg-page border theme-border text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+              <button type="button" onclick="togglePasswordVisibility('forgot-new-password', this)" aria-label="Show or hide new password" class="absolute right-3 top-1/2 -translate-y-1/2 theme-text-muted hover:theme-primary-text p-1">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="w-full py-3 rounded-xl theme-accent-bg font-bold text-sm shadow">
+            Reset Password & Sign In
+          </button>
+        </form>
+
+        <p class="text-center text-xs theme-text-muted pt-1">
+          Remembered your password?
+          <button type="button" onclick="switchAuthTab('login')" class="font-bold theme-accent-text hover:underline ml-1">Back to Login</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MEDIA LIGHTBOX MODAL (View Full Pictures & Watch Videos)
+       ======================================================================== -->
+  <div id="media-viewer-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="theme-bg-surface border theme-border rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-6 py-4 border-b theme-border">
+        <div>
+          <span id="viewer-category" class="text-[11px] font-bold uppercase tracking-wider theme-accent-text">Category</span>
+          <h3 id="viewer-title" class="font-display text-lg font-bold theme-primary-text">Media Title</h3>
+        </div>
+        <button onclick="closeMediaViewer()" class="w-9 h-9 rounded-full theme-bg-subtle flex items-center justify-center theme-primary-text hover:opacity-80">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="viewer-body" class="bg-black flex items-center justify-center max-h-[65vh] overflow-hidden">
+        <!-- Dynamic img / video / iframe -->
+      </div>
+      <div class="p-6 space-y-2">
+        <div class="flex flex-wrap items-center justify-between gap-2 text-xs theme-text-muted">
+          <span id="viewer-speaker" class="font-semibold theme-primary-text">Speaker</span>
+          <span id="viewer-date">Date</span>
+        </div>
+        <p id="viewer-description" class="text-sm theme-text-muted leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       TOAST NOTIFICATION BANNER
+       ======================================================================== -->
+  <div id="toast-container" class="fixed bottom-20 right-4 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- ========================================================================
+       FOOTER WITH ALL SOCIAL LINKS & CHURCH DETAILS
+       ======================================================================== -->
+  <footer class="theme-primary-bg border-t border-white/10 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="space-y-3">
+          <h4 class="font-display text-lg font-bold text-amber-400">GOFAMINT Pentecost Arena</h4>
+          <p class="text-xs text-white/80 leading-relaxed">
+            The Gospel Faith Mission International — Ikere-Ekiti Assembly. Raising Kingdom citizens grounded in the Word, fervent in prayer, and impactful in society.
+          </p>
+          <p class="text-xs text-white/70">
+            <i class="fa-solid fa-location-dot text-amber-400 mr-1.5"></i>Afao Quarters, Along Ado Road, Ikere-Ekiti, Ekiti State (Plus Code: G63H+HF3)
+          </p>
+        </div>
+
+        <div class="space-y-2.5">
+          <h5 class="font-bold text-sm uppercase tracking-wider text-amber-400">Weekly Services</h5>
+          <ul class="text-xs text-white/80 space-y-2">
+            <li><strong>Sunday Early Risers:</strong> 7:00 AM</li>
+            <li><strong>Sunday Celebration Service:</strong> 8:30 AM</li>
+            <li><strong>Tuesday Word Encounter:</strong> Evening Bible Study</li>
+            <li><strong>Special Annuals:</strong> EMERGENCE (Sept), PLA Cohort, Old School Sunday</li>
+          </ul>
+        </div>
+
+        <div class="space-y-2.5">
+          <h5 class="font-bold text-sm uppercase tracking-wider text-amber-400">Quick Navigation</h5>
+          <ul class="text-xs text-white/80 space-y-2">
+            <li><button onclick="switchView('dashboard')" class="hover:text-amber-300">Church Overview & Mandate</button></li>
+            <li><button onclick="switchView('media')" class="hover:text-amber-300">Audio Sermons & Video Broadcasts</button></li>
+            <li><button onclick="switchView('institutes')" class="hover:text-amber-300">Pentecost Leadership Academy (PLA)</button></li>
+            <li><button onclick="switchView('admin')" class="hover:text-amber-300">Admin Media Studio</button></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h5 class="font-bold text-sm uppercase tracking-wider text-amber-400">Official Social Media</h5>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="https://www.youtube.com/@pentecostarenaTV" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
+              <i class="fa-brands fa-youtube text-red-400"></i><span>YouTube</span>
+            </a>
+            <a href="https://www.facebook.com/search/top?q=Gofamint%20Pentecost%20Arena" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
+              <i class="fa-brands fa-facebook text-blue-400"></i><span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/pentecost_arena" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
+              <i class="fa-brands fa-instagram text-pink-400"></i><span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@pentecostarena" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
+              <i class="fa-brands fa-tiktok text-white"></i><span>TikTok</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/60 gap-2">
+        <p>&copy; 2026 GOFAMINT Pentecost Arena, Ikere-Ekiti. All Rights Reserved.</p>
+        <p>Lead Pastor: Pastor Beloved Akinkunmi Abimbola &bull; G.O.: Pastor (Dr.) E. O. Abina</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       APPLICATION JAVASCRIPT (State, Themes, Auth, Media & Admin Engine)
+       ======================================================================== -->
+  <script>
+    // ------------------------------------------------------------------------
+    // 1. DEFAULT SEED DATA (Rich Pentecost Arena Sermons, Videos & Photos)
+    // ------------------------------------------------------------------------
+    const SEED_MEDIA = [
+      {
+        id: 'med-1',
+        type: 'audio',
+        title: 'The Ancient Landmark: Standing Firm in Truth',
+        speaker: 'Pastor Beloved Akinkunmi Abimbola',
+        category: 'Old School Sunday',
+        meta: 'Proverbs 22:28; Jeremiah 6:16',
+        date: '2026-10-18',
+        description: 'An inspiring charge delivered during our annual Old School Sunday celebration, calling believers back to foundational apostolic holiness, fervent prayer, and unshakable faith.',
+        url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        thumbnail: ''
+      },
+      {
+        id: 'med-2',
+        type: 'video',
+        title: 'Leading Self to Lead Others — PLA Keynote Highlight',
+        speaker: 'Pentecost Leadership Academy (PLA)',
+        category: 'Pentecost Leadership Academy (PLA)',
+        meta: 'Civic & Kingdom Leadership Cohort',
+        date: '2026-09-27',
+        description: 'Highlights from the Pentecost Leadership Academy in Ikere-Ekiti, equipping emerging leaders, civil servants, and entrepreneurs with ethical leadership and enterprise capacity.',
+        url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        thumbnail: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'med-3',
+        type: 'photo',
+        title: 'Sunday Celebration & Choir Ministration at Pentecost Arena',
+        speaker: 'Sanctuary Media Desk',
+        category: 'Sunday Celebration Service',
+        meta: 'Afao Quarters, Ado Road, Ikere-Ekiti',
+        date: '2026-11-01',
+        description: 'Congregational praise and heartfelt worship during the 8:30 AM Main Celebration Service at GOFAMINT Pentecost Arena, Ikere-Ekiti.',
+        url: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1000&q=80',
+        thumbnail: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        id: 'med-4',
+        type: 'audio',
+        title: 'Word Encounter: The Power of Consecrated Workers (The Rechabites)',
+        speaker: 'Pastor Beloved Akinkunmi Abimbola',
+        category: 'Tuesday Word Encounter',
+        meta: 'Jeremiah 35:1-19; 1 Corinthians 15:58',
+        date: '2026-10-27',
+        description: 'Midweek expository Bible study examining the steadfastness of the Rechabites and what it means to serve faithfully in God’s vineyard.',
+        url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+        thumbnail: ''
+      },
+      {
+        id: 'med-5',
+        type: 'photo',
+        title: 'EMERGENCE Annual Youth & BOUESTI Campus Convocation',
+        speaker: 'Christ Ambassadors & GSF Victory Field',
+        category: 'EMERGENCE Youth Conference',
+        meta: 'Youth & Campus Awakening',
+        date: '2026-09-28',
+        description: 'Students from Bamidele Olumilua University (BOUESTI) and Ikere youths gathered for career empowerment, prayer, and spiritual renewal.',
+        url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1000&q=80',
+        thumbnail: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        id: 'med-6',
+        type: 'video',
+        title: 'Pentecost School of Ministry (PSM) — Torchbearers Commissioning',
+        speaker: 'PSM Faculty & Parish Leadership',
+        category: 'Pentecost School of Ministry (PSM)',
+        meta: '2 Timothy 2:15',
+        date: '2026-08-16',
+        description: 'Graduating ministers and workers commissioned as Torchbearers after intensive biblical and homiletical training at Pentecost Arena.',
+        url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+        thumbnail: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=900&q=80'
+      }
+    ];
+
+    const DEFAULT_USERS = [
+      {
+        id: 'admin-1',
+        name: 'Pastor Beloved Abimbola (Admin)',
+        email: 'admin@pentecostarena.org',
+        password: 'Password123!',
+        role: 'admin'
+      }
+    ];
+
+    // ------------------------------------------------------------------------
+    // 2. APPLICATION STATE & STORAGE HELPERS
+    // ------------------------------------------------------------------------
+    let currentTheme = localStorage.getItem('gpa_theme') || 'royal';
+    let currentView = 'dashboard';
+    let currentMediaFilter = 'all';
+    let currentUser = JSON.parse(localStorage.getItem('gpa_current_user') || 'null');
+    let usersDB = JSON.parse(localStorage.getItem('gpa_users') || 'null') || DEFAULT_USERS;
+    let mediaItems = JSON.parse(localStorage.getItem('gpa_media') || 'null') || SEED_MEDIA;
+    let uploadedFileDataUrl = '';
+    let generatedOTP = '';
+    let recoveryEmail = '';
+
+    function saveUsers() {
+      localStorage.setItem('gpa_users', JSON.stringify(usersDB));
+    }
+
+    function saveMedia() {
+      localStorage.setItem('gpa_media', JSON.stringify(mediaItems));
+      updateStats();
+    }
+
+    function saveSession(user) {
+      currentUser = user;
+      if (user) {
+        localStorage.setItem('gpa_current_user', JSON.stringify(user));
+      } else {
+        localStorage.removeItem('gpa_current_user');
+      }
+      renderAuthHeader();
+      updateAdminAccessUI();
+    }
+
+    // ------------------------------------------------------------------------
+    // 3. THEME ENGINE (3 Church Themes)
+    // ------------------------------------------------------------------------
+    function setTheme(themeName) {
+      currentTheme = themeName;
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('gpa_theme', themeName);
+
+      // Highlight active theme pill
+      document.querySelectorAll('.theme-pill').forEach(btn => {
+        btn.classList.remove('theme-primary-bg', 'shadow-sm');
+        btn.classList.add('theme-primary-text');
+      });
+      const activePill = document.getElementById(`theme-btn-${themeName}`);
+      if (activePill) {
+        activePill.classList.add('theme-primary-bg', 'shadow-sm');
+        activePill.classList.remove('theme-primary-text');
+      }
+    }
+
+    // ------------------------------------------------------------------------
+    // 4. VIEW NAVIGATION
+    // ------------------------------------------------------------------------
+    function switchView(viewName) {
+      currentView = viewName;
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.add('hidden'));
+      const target = document.getElementById(`view-${viewName}`);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('theme-primary-bg', 'shadow-sm');
+        btn.classList.add('theme-primary-text', 'hover:bg-black/5');
+      });
+      const activeNav = document.getElementById(`nav-${viewName}`);
+      if (activeNav) {
+        activeNav.classList.add('theme-primary-bg', 'shadow-sm');
+        activeNav.classList.remove('theme-primary-text', 'hover:bg-black/5');
+      }
+
+      if (viewName === 'media') renderMediaLibrary();
+      if (viewName === 'admin') {
+        updateAdminAccessUI();
+        renderAdminMediaList();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // ------------------------------------------------------------------------
+    // 5. AUTHENTICATION SYSTEM (Login, Register, Forgot Password, Show/Hide)
+    // ------------------------------------------------------------------------
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    function openAuthModal(tab = 'login') {
+      document.getElementById('auth-modal').classList.remove('hidden');
+      switchAuthTab(tab);
+    }
+
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.add('hidden');
+    }
+
+    function switchAuthTab(tab) {
+      document.getElementById('form-login').classList.add('hidden');
+      document.getElementById('form-register').classList.add('hidden');
+      document.getElementById('form-forgot').classList.add('hidden');
+
+      const title = document.getElementById('auth-modal-title');
+      const subtitle = document.getElementById('auth-modal-subtitle');
+
+      if (tab === 'login') {
+        document.getElementById('form-login').classList.remove('hidden');
+        title.textContent = 'Welcome Back';
+        subtitle.textContent = 'Sign in to GOFAMINT Pentecost Arena, Ikere-Ekiti';
+      } else if (tab === 'register') {
+        document.getElementById('form-register').classList.remove('hidden');
+        title.textContent = 'Create an Account';
+        subtitle.textContent = 'Join our digital sanctuary & leadership community';
+      } else if (tab === 'forgot') {
+        document.getElementById('form-forgot').classList.remove('hidden');
+        document.getElementById('forgot-step-1').classList.remove('hidden');
+        document.getElementById('forgot-step-2').classList.add('hidden');
+        title.textContent = 'Recover Password';
+        subtitle.textContent = 'Reset your Pentecost Arena account credentials';
+      }
+    }
+
+    function toggleAdminCodeField() {
+      const checked = document.getElementById('reg-is-admin').checked;
+      const wrapper = document.getElementById('admin-code-wrapper');
+      if (checked) wrapper.classList.remove('hidden');
+      else wrapper.classList.add('hidden');
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim().toLowerCase();
+      const password = document.getElementById('login-password').value;
+
+      const user = usersDB.find(u => u.email.toLowerCase() === email && u.password === password);
+      if (!user) {
+        showToast('Invalid email or password. Try Demo Admin Access or create an account.', 'error');
+        return;
+      }
+
+      saveSession({ id: user.id, name: user.name, email: user.email, role: user.role });
+      closeAuthModal();
+      showToast(`Welcome back, ${user.name}!`, 'success');
+      if (user.role === 'admin') switchView('admin');
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim().toLowerCase();
+      const password = document.getElementById('reg-password').value;
+      const confirm = document.getElementById('reg-confirm-password').value;
+      const isAdminRequested = document.getElementById('reg-is-admin').checked;
+      const adminCode = document.getElementById('reg-admin-code').value.trim();
+
+      if (password !== confirm) {
+        showToast('Passwords do not match. Please verify.', 'error');
+        return;
+      }
+
+      if (usersDB.some(u => u.email.toLowerCase() === email)) {
+        showToast('An account with this email already exists.', 'error');
+        return;
+      }
+
+      let role = 'member';
+      if (isAdminRequested) {
+        if (adminCode.toUpperCase() === 'GOFAMINT2026') {
+          role = 'admin';
+        } else {
+          showToast('Invalid Church Admin Code. Use GOFAMINT2026 or uncheck Admin.', 'error');
+          return;
+        }
+      }
+
+      const newUser = {
+        id: 'user-' + Date.now(),
+        name,
+        email,
+        password,
+        role
+      };
+
+      usersDB.push(newUser);
+      saveUsers();
+      saveSession({ id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role });
+      closeAuthModal();
+      showToast(`Account created! Welcome, ${name} (${role.toUpperCase()}).`, 'success');
+      if (role === 'admin') switchView('admin');
+    }
+
+    function handleForgotStep1(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgot-email').value.trim().toLowerCase();
+      const user = usersDB.find(u => u.email.toLowerCase() === email);
+      if (!user) {
+        showToast('No account found with that email address.', 'error');
+        return;
+      }
+
+      recoveryEmail = email;
+      generatedOTP = String(Math.floor(100000 + Math.random() * 900000));
+      document.getElementById('simulated-otp-display').textContent = generatedOTP;
+      document.getElementById('forgot-step-1').classList.add('hidden');
+      document.getElementById('forgot-step-2').classList.remove('hidden');
+      showToast('Verification code sent to your email.', 'success');
+    }
+
+    function handleForgotStep2(e) {
+      e.preventDefault();
+      const otpInput = document.getElementById('forgot-otp').value.trim();
+      const newPass = document.getElementById('forgot-new-password').value;
+
+      if (otpInput !== generatedOTP) {
+        showToast('Incorrect verification code. Please check and try again.', 'error');
+        return;
+      }
+
+      const userIndex = usersDB.findIndex(u => u.email.toLowerCase() === recoveryEmail);
+      if (userIndex !== -1) {
+        usersDB[userIndex].password = newPass;
+        saveUsers();
+        const u = usersDB[userIndex];
+        saveSession({ id: u.id, name: u.name, email: u.email, role: u.role });
+        closeAuthModal();
+        showToast('Password updated successfully! You are now signed in.', 'success');
+      }
+    }
+
+    function quickDemoAdminLogin() {
+      const adminUser = usersDB[0];
+      saveSession({ id: adminUser.id, name: adminUser.name, email: adminUser.email, role: 'admin' });
+      closeAuthModal();
+      showToast('Signed in as Demo Media Admin!', 'success');
+      switchView('admin');
+    }
+
+    function logoutUser() {
+      saveSession(null);
+      showToast('You have signed out.', 'info');
+      if (currentView === 'admin') updateAdminAccessUI();
+    }
+
+    function renderAuthHeader() {
+      const container = document.getElementById('header-auth-area');
+      const heroCta = document.getElementById('hero-admin-cta');
+
+      if (currentUser) {
+        const badge = currentUser.role === 'admin'
+          ? '<span class="px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase">Admin</span>'
+          : '<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-700 text-[10px] font-bold uppercase">Member</span>';
+
+        container.innerHTML = `
+          <div class="flex items-center gap-2">
+            <div class="hidden sm:flex flex-col items-end">
+              <span class="text-xs font-bold theme-primary-text max-w-[130px] truncate">${escapeHTML(currentUser.name)}</span>
+              ${badge}
+            </div>
+            <button onclick="logoutUser()" title="Sign Out" class="px-3 py-2 rounded-xl theme-bg-subtle border theme-border text-xs font-bold theme-primary-text hover:bg-red-50 hover:text-red-700">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+          </div>
+        `;
+        if (heroCta) {
+          heroCta.innerHTML = `<i class="fa-solid fa-shield-halved"></i>Open Admin Media Studio`;
+          heroCta.onclick = () => switchView('admin');
+        }
+      } else {
+        container.innerHTML = `
+          <button onclick="openAuthModal('login')" class="px-3.5 py-2 rounded-xl theme-primary-bg text-xs font-bold shadow-sm hover:opacity-90 flex items-center gap-1.5">
+            <i class="fa-solid fa-user"></i><span>Sign In</span>
+          </button>
+        `;
+        if (heroCta) {
+          heroCta.innerHTML = `<i class="fa-solid fa-lock"></i>Member / Admin Login`;
+          heroCta.onclick = () => openAuthModal('login');
+        }
+      }
+    }
+
+    // ------------------------------------------------------------------------
+    // 6. ADMIN MEDIA STUDIO (Post Audio Sermons, Videos & Pictures)
+    // ------------------------------------------------------------------------
+    function updateAdminAccessUI() {
+      const locked = document.getElementById('admin-locked-panel');
+      const studio = document.getElementById('admin-studio-panel');
+      if (currentUser && currentUser.role === 'admin') {
+        locked.classList.add('hidden');
+        studio.classList.remove('hidden');
+        document.getElementById('post-date').valueAsDate = new Date();
+      } else {
+        locked.classList.remove('hidden');
+        studio.classList.add('hidden');
+      }
+    }
+
+    function setAdminPostType(type) {
+      document.getElementById('post-type-input').value = type;
+      uploadedFileDataUrl = '';
+      document.getElementById('post-file-input').value = '';
+      document.getElementById('file-preview-badge').classList.add('hidden');
+
+      document.querySelectorAll('.admin-type-tab').forEach(tab => {
+        tab.classList.remove('theme-primary-bg', 'shadow');
+        tab.classList.add('theme-primary-text');
+      });
+      const activeTab = document.getElementById(`admin-tab-${type}`);
+      activeTab.classList.add('theme-primary-bg', 'shadow');
+      activeTab.classList.remove('theme-primary-text');
+
+      const titleLabel = document.getElementById('label-post-title');
+      const speakerLabel = document.getElementById('label-post-speaker');
+      const fileLabel = document.getElementById('label-file-upload');
+      const fileInput = document.getElementById('post-file-input');
+      const metaLabel = document.getElementById('label-post-meta');
+
+      if (type === 'audio') {
+        titleLabel.textContent = 'Sermon Title *';
+        speakerLabel.textContent = 'Preacher / Minister *';
+        fileLabel.textContent = 'Upload Audio Sermon (.mp3, .wav, .m4a)';
+        fileInput.accept = 'audio/*';
+        metaLabel.textContent = 'Scripture Reference';
+      } else if (type === 'video') {
+        titleLabel.textContent = 'Video Broadcast Title *';
+        speakerLabel.textContent = 'Speaker / Ministry Unit *';
+        fileLabel.textContent = 'Upload Video File (.mp4, .webm)';
+        fileInput.accept = 'video/*';
+        metaLabel.textContent = 'Series / Event Tag';
+      } else {
+        titleLabel.textContent = 'Picture / Album Title *';
+        speakerLabel.textContent = 'Photographer / Department *';
+        fileLabel.textContent = 'Upload Church Picture (.jpg, .png, .webp)';
+        fileInput.accept = 'image/*';
+        metaLabel.textContent = 'Location / Occasion';
+      }
+    }
+
+    function handleFileSelection(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const badge = document.getElementById('file-preview-badge');
+      badge.classList.remove('hidden');
+      badge.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1.5"></i>Reading "${escapeHTML(file.name)}"...`;
+
+      // Use ObjectURL for large media files so browser playback works reliably without exceeding localStorage quota,
+      // while using DataURL for smaller images (< 1.5MB) so they persist across refreshes.
+      if (file.type.startsWith('image/') && file.size < 1500000) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          uploadedFileDataUrl = evt.target.result;
+          badge.innerHTML = `<i class="fa-solid fa-check-circle mr-1.5"></i>Ready to publish: ${escapeHTML(file.name)}`;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        uploadedFileDataUrl = URL.createObjectURL(file);
+        badge.innerHTML = `<i class="fa-solid fa-check-circle mr-1.5"></i>Media loaded: ${escapeHTML(file.name)} (${(file.size / (1024 * 1024)).toFixed(1)} MB)`;
+      }
+    }
+
+    function handleAdminPublish(e) {
+      e.preventDefault();
+      if (!currentUser || currentUser.role !== 'admin') {
+        showToast('Admin authorization required.', 'error');
+        return;
+      }
+
+      const type = document.getElementById('post-type-input').value;
+      const title = document.getElementById('post-title').value.trim();
+      const speaker = document.getElementById('post-speaker').value.trim();
+      const category = document.getElementById('post-category').value;
+      const urlInput = document.getElementById('post-url').value.trim();
+      const meta = document.getElementById('post-meta').value.trim() || 'Pentecost Arena, Ikere-Ekiti';
+      const date = document.getElementById('post-date').value || new Date().toISOString().split('T')[0];
+      const description = document.getElementById('post-description').value.trim() || 'Published from GOFAMINT Pentecost Arena Media Desk.';
+
+      let finalUrl = uploadedFileDataUrl || urlInput;
+
+      // Provide working fallback sample media if admin tests publishing without uploading a file/URL
+      if (!finalUrl) {
+        if (type === 'audio') finalUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3';
+        else if (type === 'video') finalUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoy.mp4';
+        else finalUrl = 'https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=1000&q=80';
+      }
+
+      const newItem = {
+        id: 'med-' + Date.now(),
+        type,
+        title,
+        speaker,
+        category,
+        meta,
+        date,
+        description,
+        url: finalUrl,
+        thumbnail: type === 'photo' ? finalUrl : 'https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=900&q=80'
+      };
+
+      mediaItems.unshift(newItem);
+      try {
+        saveMedia();
+      } catch (err) {
+        // Fallback if localStorage size limit hit by large base64
+        showToast('Published for current session!', 'info');
+      }
+
+      document.getElementById('admin-publish-form').reset();
+      document.getElementById('post-type-input').value = type;
+      document.getElementById('post-speaker').value = 'Pastor Beloved Akinkunmi Abimbola';
+      document.getElementById('post-date').valueAsDate = new Date();
+      document.getElementById('file-preview-badge').classList.add('hidden');
+      uploadedFileDataUrl = '';
+
+      renderAdminMediaList();
+      renderDashboardFeatured();
+      showToast(`Published "${title}" to the live church platform!`, 'success');
+    }
+
+    function deleteMediaItem(id) {
+      mediaItems = mediaItems.filter(item => item.id !== id);
+      saveMedia();
+      renderAdminMediaList();
+      renderDashboardFeatured();
+      renderMediaLibrary();
+      showToast('Media item removed.', 'info');
+    }
+
+    function renderAdminMediaList() {
+      const list = document.getElementById('admin-media-list');
+      const badge = document.getElementById('admin-total-badge');
+      badge.textContent = `${mediaItems.length} Items`;
+
+      if (mediaItems.length === 0) {
+        list.innerHTML = `<p class="text-xs theme-text-muted text-center py-8">No media published yet.</p>`;
+        return;
+      }
+
+      list.innerHTML = mediaItems.map(item => {
+        const iconMap = {
+          audio: '<i class="fa-solid fa-headphones text-amber-600"></i>',
+          video: '<i class="fa-solid fa-video text-blue-600"></i>',
+          photo: '<i class="fa-solid fa-image text-emerald-600"></i>'
+        };
+        return `
+          <div class="p-3.5 rounded-xl theme-bg-page border theme-border flex items-start justify-between gap-3">
+            <div class="min-w-0 space-y-1">
+              <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider theme-text-muted">
+                ${iconMap[item.type]} <span>${item.type}</span> &bull; <span>${escapeHTML(item.date)}</span>
+              </div>
+              <p class="text-sm font-bold theme-primary-text truncate">${escapeHTML(item.title)}</p>
+              <p class="text-xs theme-text-muted truncate">${escapeHTML(item.speaker)}</p>
+            </div>
+            <button onclick="deleteMediaItem('${item.id}')" title="Delete Item" class="p-2 rounded-lg text-red-600 hover:bg-red-500/10 shrink-0">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ------------------------------------------------------------------------
+    // 7. PUBLIC MEDIA LIBRARY & INTERACTIVE AUDIO/VIDEO/PHOTO PLAYERS
+    // ------------------------------------------------------------------------
+    function filterMedia(type) {
+      currentMediaFilter = type;
+      document.querySelectorAll('.media-filter-btn').forEach(btn => {
+        btn.classList.remove('theme-primary-bg');
+        btn.classList.add('theme-bg-subtle', 'theme-primary-text', 'border', 'theme-border');
+      });
+      const active = document.getElementById(`filter-${type}`);
+      if (active) {
+        active.classList.add('theme-primary-bg');
+        active.classList.remove('theme-bg-subtle', 'theme-primary-text', 'border', 'theme-border');
+      }
+      renderMediaLibrary();
+    }
+
+    function createMediaCardHTML(item) {
+      if (item.type === 'audio') {
+        return `
+          <div class="theme-card rounded-2xl p-6 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 theme-accent-text text-[11px] font-bold uppercase tracking-wider">
+                  <i class="fa-solid fa-headphones mr-1"></i>Audio Sermon
+                </span>
+                <span class="text-xs theme-text-muted">${escapeHTML(item.date)}</span>
+              </div>
+              <h4 class="font-display text-lg font-bold theme-primary-text leading-snug">${escapeHTML(item.title)}</h4>
+              <p class="text-xs font-semibold theme-accent-text">${escapeHTML(item.speaker)}</p>
+              <p class="text-xs theme-text-muted line-clamp-2 leading-relaxed">${escapeHTML(item.description)}</p>
+            </div>
+            <div class="pt-3 border-t theme-border flex items-center justify-between gap-2">
+              <span class="text-[11px] font-medium theme-text-muted truncate max-w-[55%]">
+                <i class="fa-solid fa-book-open mr-1"></i>${escapeHTML(item.meta)}
+              </span>
+              <button onclick="playAudioSermon('${item.id}')" class="px-4 py-2 rounded-xl theme-primary-bg text-xs font-bold flex items-center gap-1.5 hover:opacity-90 shrink-0">
+                <i class="fa-solid fa-play"></i>Listen Now
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      if (item.type === 'video') {
+        return `
+          <div class="theme-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="relative h-48 bg-slate-900 cursor-pointer group" onclick="openMediaViewer('${item.id}')">
+                <img src="${escapeHTML(item.thumbnail)}" alt="${escapeHTML(item.title)}" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300" />
+                <div class="absolute inset-0 bg-black/35 flex items-center justify-center">
+                  <div class="w-12 h-12 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-lg shadow-xl group-hover:scale-110 transition">
+                    <i class="fa-solid fa-play ml-0.5"></i>
+                  </div>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[11px] font-bold uppercase">
+                  <i class="fa-solid fa-video text-amber-400 mr-1"></i>Video
+                </span>
+              </div>
+              <div class="p-5 space-y-2">
+                <div class="flex items-center justify-between text-xs theme-text-muted">
+                  <span class="font-semibold theme-accent-text">${escapeHTML(item.category)}</span>
+                  <span>${escapeHTML(item.date)}</span>
+                </div>
+                <h4 class="font-display text-lg font-bold theme-primary-text leading-snug">${escapeHTML(item.title)}</h4>
+                <p class="text-xs theme-text-muted line-clamp-2">${escapeHTML(item.description)}</p>
+              </div>
+            </div>
+            <div class="px-5 pb-5">
+              <button onclick="openMediaViewer('${item.id}')" class="w-full py-2.5 rounded-xl theme-bg-subtle border theme-border text-xs font-bold theme-primary-text hover:opacity-80">
+                Watch Video Broadcast
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      // Photo Card
+      return `
+        <div class="theme-card rounded-2xl overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="relative h-48 bg-slate-900 cursor-pointer group" onclick="openMediaViewer('${item.id}')">
+              <img src="${escapeHTML(item.url)}" alt="${escapeHTML(item.title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[11px] font-bold uppercase">
+                <i class="fa-solid fa-camera text-amber-400 mr-1"></i>Gallery
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center justify-between text-xs theme-text-muted">
+                <span class="font-semibold theme-accent-text">${escapeHTML(item.category)}</span>
+                <span>${escapeHTML(item.date)}</span>
+              </div>
+              <h4 class="font-display text-lg font-bold theme-primary-text leading-snug">${escapeHTML(item.title)}</h4>
+              <p class="text-xs theme-text-muted line-clamp-2">${escapeHTML(item.description)}</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5">
+            <button onclick="openMediaViewer('${item.id}')" class="w-full py-2.5 rounded-xl theme-bg-subtle border theme-border text-xs font-bold theme-primary-text hover:opacity-80">
+              View Full Picture
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDashboardFeatured() {
+      const container = document.getElementById('dashboard-featured-media');
+      const featured = mediaItems.slice(0, 3);
+      container.innerHTML = featured.map(createMediaCardHTML).join('');
+    }
+
+    function renderMediaLibrary() {
+      const grid = document.getElementById('media-library-grid');
+      const query = (document.getElementById('media-search-input')?.value || '').toLowerCase().trim();
+
+      const filtered = mediaItems.filter(item => {
+        const matchesType = currentMediaFilter === 'all' || item.type === currentMediaFilter;
+        const matchesQuery = !query ||
+          item.title.toLowerCase().includes(query) ||
+          item.speaker.toLowerCase().includes(query) ||
+          item.category.toLowerCase().includes(query) ||
+          item.description.toLowerCase().includes(query);
+        return matchesType && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-14 theme-card rounded-2xl">
+            <i class="fa-solid fa-folder-open text-3xl theme-text-muted mb-2"></i>
+            <p class="font-bold theme-primary-text">No matching sermons or media found</p>
+            <p class="text-xs theme-text-muted mt-1">Try clearing your search filter or check another category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(createMediaCardHTML).join('');
+    }
+
+    // Audio Sermon Player Engine
+    const audioEl = document.getElementById('html-audio-element');
+
+    function playAudioSermon(id) {
+      const item = mediaItems.find(m => m.id === id);
+      if (!item) return;
+
+      const bar = document.getElementById('audio-player-bar');
+      bar.classList.remove('hidden');
+      document.getElementById('player-title').textContent = item.title;
+      document.getElementById('player-speaker').textContent = item.speaker;
+
+      audioEl.src = item.url;
+      audioEl.play().then(() => {
+        document.getElementById('player-play-btn').innerHTML = '<i class="fa-solid fa-pause"></i>';
+      }).catch(() => {
+        showToast('Audio loaded. Press Play on the bottom player bar.', 'info');
+        document.getElementById('player-play-btn').innerHTML = '<i class="fa-solid fa-play"></i>';
+      });
+    }
+
+    function toggleAudioPlay() {
+      const btn = document.getElementById('player-play-btn');
+      if (audioEl.paused) {
+        audioEl.play();
+        btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      } else {
+        audioEl.pause();
+        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      }
+    }
+
+    function seekAudio(val) {
+      if (audioEl.duration) {
+        audioEl.currentTime = (val / 100) * audioEl.duration;
+      }
+    }
+
+    function closeAudioPlayer() {
+      audioEl.pause();
+      document.getElementById('audio-player-bar').classList.add('hidden');
+    }
+
+    audioEl.addEventListener('timeupdate', () => {
+      if (!audioEl.duration) return;
+      const pct = (audioEl.currentTime / audioEl.duration) * 100;
+      document.getElementById('player-seek').value = pct;
+      document.getElementById('player-current-time').textContent = formatTime(audioEl.currentTime);
+      document.getElementById('player-duration').textContent = formatTime(audioEl.duration);
+    });
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    // Video & Photo Lightbox Viewer
+    function openMediaViewer(id) {
+      const item = mediaItems.find(m => m.id === id);
+      if (!item) return;
+
+      document.getElementById('viewer-category').textContent = item.category;
+      document.getElementById('viewer-title').textContent = item.title;
+      document.getElementById('viewer-speaker').textContent = `${item.speaker} • ${item.meta}`;
+      document.getElementById('viewer-date').textContent = item.date;
+      document.getElementById('viewer-description').textContent = item.description;
+
+      const body = document.getElementById('viewer-body');
+      if (item.type === 'photo') {
+        body.innerHTML = `<img src="${escapeHTML(item.url)}" alt="${escapeHTML(item.title)}" class="max-h-[65vh] w-auto object-contain" />`;
+      } else if (item.type === 'video') {
+        const ytId = extractYouTubeId(item.url);
+        if (ytId) {
+          body.innerHTML = `<iframe class="w-full aspect-video" src="https://www.youtube.com/embed/${ytId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        } else {
+          body.innerHTML = `<video src="${escapeHTML(item.url)}" controls autoplay class="w-full max-h-[65vh]"></video>`;
+        }
+      }
+
+      document.getElementById('media-viewer-modal').classList.remove('hidden');
+    }
+
+    function closeMediaViewer() {
+      document.getElementById('viewer-body').innerHTML = '';
+      document.getElementById('media-viewer-modal').classList.add('hidden');
+    }
+
+    function extractYouTubeId(url) {
+      const regExp = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      const match = url.match(regExp);
+      return match ? match[1] : null;
+    }
+
+    // ------------------------------------------------------------------------
+    // 8. UTILITIES & INITIALIZATION
+    // ------------------------------------------------------------------------
+    function updateStats() {
+      const el = document.getElementById('stat-media-count');
+      if (el) el.textContent = `${mediaItems.length} Uploads`;
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const colors = {
+        success: 'bg-emerald-700 text-white border-emerald-500',
+        error: 'bg-red-700 text-white border-red-500',
+        info: 'bg-slate-900 text-white border-amber-500'
+      };
+      const toast = document.createElement('div');
+      toast.className = `pointer-events-auto px-4 py-3 rounded-xl border shadow-xl text-xs font-semibold flex items-center gap-2.5 ${colors[type] || colors.info}`;
+      toast.innerHTML = `<i class="fa-solid fa-bell text-amber-400"></i><span>${escapeHTML(message)}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+
+    function escapeHTML(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTheme(currentTheme);
+      renderAuthHeader();
+      updateAdminAccessUI();
+      updateStats();
+      renderDashboardFeatured();
+      switchView('dashboard');
+    });
+  </script>
+</body>
+</html>

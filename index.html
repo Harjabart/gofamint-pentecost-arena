@@ -12,69 +12,40 @@
 
   <style>
     /* ==========================================================================
-       DYNAMIC THEME VARIABLES (3 Dignified Pentecostal Themes)
+       HIGH-CONTRAST DYNAMIC THEME SYSTEM
        ========================================================================== */
-    :root,
-    [data-theme="royal"] {
+    :root, [data-theme="royal"] {
       --bg-page: #F8FAFC;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F1F5F9;
       --primary: #0F172A;
       --primary-mid: #1E3A8A;
-      --primary-light: #DBEAFE;
       --accent: #D97706;
-      --accent-hover: #B45309;
-      --accent-soft: #FEF3C7;
       --text-main: #0F172A;
       --text-muted: #475569;
-      --text-on-primary: #FFFFFF;
-      --border-color: #E2E8F0;
-      /* Ensured deep, solid navy background gradient */
       --hero-gradient: linear-gradient(135deg, #090D16 0%, #1E3A8A 60%, #172554 100%);
-      --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
     }
-
     [data-theme="flame"] {
       --bg-page: #FFFBEB;
       --bg-surface: #FFFFFF;
       --bg-subtle: #FEF3C7;
       --primary: #450A0A;
       --primary-mid: #991B1B;
-      --primary-light: #FEE2E2;
       --accent: #D97706;
-      --accent-hover: #92400E;
-      --accent-soft: #FDE68A;
       --text-main: #290909;
       --text-muted: #573333;
-      --text-on-primary: #FFFBEB;
-      --border-color: #FDE68A;
-      /* Ensured deep, solid crimson background gradient */
       --hero-gradient: linear-gradient(135deg, #2A0404 0%, #7F1D1D 55%, #991B1B 100%);
-      --card-shadow: 0 10px 25px -5px rgba(69, 10, 10, 0.1), 0 8px 10px -6px rgba(69, 10, 10, 0.05);
     }
-
     [data-theme="emerald"] {
       --bg-page: #ECFDF5;
       --bg-surface: #FFFFFF;
       --bg-subtle: #D1FAE5;
       --primary: #064E3B;
       --primary-mid: #065F46;
-      --primary-light: #A7F3D0;
       --accent: #B45309;
-      --accent-hover: #92400E;
-      --accent-soft: #FEF3C7;
       --text-main: #022C22;
       --text-muted: #375A50;
-      --text-on-primary: #ECFDF5;
-      --border-color: #A7F3D0;
-      /* Ensured deep, solid forest green background gradient */
       --hero-gradient: linear-gradient(135deg, #022C22 0%, #065F46 58%, #047857 100%);
-      --card-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.1), 0 8px 10px -6px rgba(6, 78, 59, 0.05);
-    }
-
-    * {
-      box-sizing: border-box;
-      transition: background-color 0.28s ease, border-color 0.28s ease, color 0.2s ease, box-shadow 0.25s ease;
     }
 
     body {
@@ -82,57 +53,19 @@
       background-color: var(--bg-page);
       color: var(--text-main);
       margin: 0;
-      overflow-x: hidden;
     }
-
-    .font-display {
-      font-family: 'Cinzel', serif;
+    .font-display { font-family: 'Cinzel', serif; }
+    .theme-hero { 
+      background: var(--hero-gradient) !important; 
+      background-color: #090D16 !important;
+      color: #FFFFFF !important; 
     }
-
-    .theme-bg-page { background-color: var(--bg-page); }
-    .theme-bg-surface { background-color: var(--bg-surface); }
-    .theme-bg-subtle { background-color: var(--bg-subtle); }
-    .theme-primary-bg { background-color: var(--primary); color: var(--text-on-primary); }
-    .theme-primary-mid-bg { background-color: var(--primary-mid); color: var(--text-on-primary); }
-    .theme-accent-bg { background-color: var(--accent); color: #FFFFFF; }
-    .theme-accent-bg:hover { background-color: var(--accent-hover); }
-    .theme-accent-text { color: var(--accent); }
-    .theme-primary-text { color: var(--primary); }
-    .theme-text-muted { color: var(--text-muted); }
-    .theme-border { border-color: var(--border-color); }
-    .theme-hero { background: var(--hero-gradient); color: var(--text-on-primary); }
     .theme-card {
       background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--card-shadow);
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
     }
-
-    /* Subtle Sacred Geometric Pattern Overlay */
-    .sacred-pattern {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-page); }
-    ::-webkit-scrollbar-thumb { background: var(--primary-mid); border-radius: 999px; }
-
-    /* Audio Visualizer Bars */
-    @keyframes eqPulse {
-      0%, 100% { transform: scaleY(0.35); }
-      50% { transform: scaleY(1); }
-    }
-    .eq-bar {
-      animation: eqPulse 0.8s ease-in-out infinite;
-      transform-origin: bottom;
-    }
-    .eq-bar:nth-child(2) { animation-delay: 0.2s; }
-    .eq-bar:nth-child(3) { animation-delay: 0.4s; }
-    .eq-bar:nth-child(4) { animation-delay: 0.15s; }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col">
+</style>
 
   <!-- ========================================================================
        TOP UTILITY & SOCIAL MEDIA BAR
@@ -295,7 +228,7 @@
 
             <!-- Live Sanctuary Info Card -->
             <div class="lg:col-span-5">
-              <div class="bg-slate-950/85 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-7 space-y-5 shadow-2xl text-white">
+              <div class="bg-slate-950/90 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-7 space-y-5 shadow-2xl text-white">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4">
                   <div>
                     <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Sanctuary Identity</span>
